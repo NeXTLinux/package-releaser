@@ -2,7 +2,12 @@ name: Auto Sync and Release
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Run daily at midnight UTC
+  - cron: "0 * * * *"
+    # At the end of every day
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   sync_and_release:
